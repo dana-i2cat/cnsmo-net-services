@@ -1,0 +1,3 @@
+V	260228112531Z		01	unknown	/C=ES/ST=CATALUNYA/L=Barcelona/O=i2CAT/OU=DANA/SEG/CN=server/name=EasyRSA/emailAddress=e-mail@mail.com
+V	260228112554Z		02	unknown	/C=ES/ST=CATALUNYA/L=Barcelona/O=i2CAT/OU=DANA/SEG/CN=client/name=EasyRSA/emailAddress=e-mail@mail.com
+V	260228113959Z		03	unknown	/C=ES/ST=CATALUNYA/L=Barcelona/O=i2CAT/OU=DANA/SEG/CN=client1/name=EasyRSA/emailAddress=e-mail@mail.com

@@ -1,0 +1,7 @@
+Main Repository to track the VPN Integration with dockers
+
+To build the server:
+ - docker build -t vpn-server .
+
+To run the Docker:
+ - docker run -t --net=host  --privileged -v /dev/net/:/dev/net/ vpn-server
