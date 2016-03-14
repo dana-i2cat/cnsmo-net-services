@@ -1,9 +1,12 @@
 Main Repository to track the VPN Integration with dockers
 
-To build the client:
+To install Docker:
+Follow the official guide here https://docs.docker.com/engine/installation/linux/ubuntulinux/:
+A script is provided to install Docker in ubuntu 14.04:
+ - (in ubuntu 14.04) sudo sh install_docker.sh
 
+To build the client:
  - docker build -t vpn-client .
 
 To run the Docker:
  - docker run -t --net=host  --privileged -v /dev/net/:/dev/net/ vpn-client
-
