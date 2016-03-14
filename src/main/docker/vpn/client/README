@@ -5,6 +5,8 @@ Follow the official guide here https://docs.docker.com/engine/installation/linux
 A script is provided to install Docker in ubuntu 14.04:
  - (in ubuntu 14.04) sudo sh install_docker.sh
 
+Modify "remote" property in client.conf file with the VPN server ip address.
+
 To build the client:
  - docker build -t vpn-client .
 
