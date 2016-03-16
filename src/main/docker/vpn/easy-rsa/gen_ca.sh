@@ -1,16 +1,16 @@
 #!/bin/bash
 
-sh gen_index.sh
+sh "$( cd "$( dirname "$0" )" && pwd )"/gen_index.sh
 
 echo -e "Generating CA certificate and key. Note: Default variables can be edit in vars.example\n"
 
-docker run -it --rm --name easy-rsa -v $(pwd)/keys:/easy-rsa --env-file vars new-easy-rsa /er/build-ca
+docker run -it --rm --name easy-rsa -v "$( cd "$( dirname "$0" )" && pwd )"/keys:/easy-rsa --env-file "$( cd "$( dirname "$0" )" && pwd )"/vars new-easy-rsa /er/build-ca
 
 echo -e "\nGenerating server certificate and keys.\n"
 
 #docker run -it --rm --name easy-rsa -v $(pwd)/keys:/easy-rsa --env-file vars carbonsphere/dock-easy-rsa /er/build-key-server $srvname
 
-docker run -it --rm --name easy-rsa -v $(pwd)/keys:/easy-rsa --env-file vars new-easy-rsa /er/build-dh
+docker run -it --rm --name easy-rsa -v "$( cd "$( dirname "$0" )" && pwd )"/keys:/easy-rsa --env-file "$( cd "$( dirname "$0" )" && pwd )"/vars new-easy-rsa /er/build-dh
 
 echo -e "Moving necessary files to openvpn directory\n"
 
