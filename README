@@ -1,2 +1,5 @@
-Main Repository to track the VPN Integration with dockers
+To build the server:
+ - docker build -t fw-docker .
 
+To run the Docker:
+ - docker run -t --net=host  --privileged fw-docker
