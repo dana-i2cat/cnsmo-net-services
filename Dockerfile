@@ -2,6 +2,6 @@ FROM alpine
 
 RUN apk add -U iproute2
 
-COPY ./sc-manager.py /home
+COPY ./sc-manager.py /home/
 
-WORKDIR /home
+ENTRYPOINT ["/home/sc-manager.py"]
