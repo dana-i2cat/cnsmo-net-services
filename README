@@ -1,5 +1,7 @@
-To build the server:
+This Docker image manages iptables with a python wrapper. 
+
+To build the container:
  - docker build -t fw-docker .
 
-To run the Docker:
- - docker run -t --net=host  --privileged fw-docker
+To run the container and manage iptables:
+ - docker run -t --net=host --privileged fw-docker add in tcp 8080 1.1.1.1/27 drop
