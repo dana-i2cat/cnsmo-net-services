@@ -1,2 +1,7 @@
-Main Repository to track the VPN Integration with dockers
+This Docker container balances tcp connections to the specified servers. 
 
+To build the container:
+ - docker build -t lb-docker .
+
+To run the container and manage iptables:
+ - docker docker run -t -d -p 8080:8080 -e COUCHDB_SERVERS=134.158.75.84:80,134.158.75.85:8080 lb-docker
