@@ -4,4 +4,4 @@ To build the container:
  - docker build -t lb-docker .
 
 To run the container and start load balancing incoming TCP connections:
- - docker docker run -t -d -p 8080:8080 -e COUCHDB_SERVERS=134.158.75.84:80,134.158.75.85:8080 lb-docker
+ - docker docker run -t -d -p 8080:8080 -e COUCHDB_SERVERS=134.158.75.84:8080,134.158.75.85:8080 lb-docker
