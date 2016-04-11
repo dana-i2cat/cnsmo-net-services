@@ -1,7 +1,15 @@
-This Docker image manages iptables with a python wrapper. 
+This Docker image manages iptables with a python wrapper.
 
 To build the container:
  - docker build -t fw-docker .
 
-To run the container and manage iptables:
+Run the docker with parameters :
+add/del in/out protocol destination-port ip address and drop/acpt
+When the container finishes running, it is automatically cleaned up and removed
+and one can see it has modified the iptables rules of the host.
+
+To run the container making it add a rule to iptable:
  - docker run -t --rm --net=host --privileged fw-docker add in tcp 8080 1.1.1.1/27 drop
+
+To run the container making it remove the previously added rule:
+- docker run -t --rm --net=host --privileged fw-docker del in tcp 8080 1.1.1.1/27 drop
