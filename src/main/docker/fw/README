@@ -5,10 +5,13 @@ To build the container:
 
 Run the docker with parameters :
 add/del in/out protocol destination-port ip address and drop/acpt
+
 When the container finishes running, it is automatically cleaned up and removed
 and one can see it has modified the iptables rules of the host.
+The container holds no state. State is maintained by iptables itself.
+Running the container has no other effect in the host than modifying host's iptables, and updating docker runs history.
 
-To run the container making it add a rule to iptable:
+To run the container making it add a rule to iptables:
  - docker run -t --rm --net=host --privileged fw-docker add in tcp 8080 1.1.1.1/27 drop
 
 To run the container making it remove the previously added rule:
