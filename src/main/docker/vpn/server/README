@@ -10,3 +10,22 @@ To build the server:
 
 To run the Docker:
  - docker run -t --net=host  --privileged -v /dev/net/:/dev/net/ vpn-server
+
+A vagrant file is provided. It allows easily deploying the docker in a controlled environment (Ubuntu 14.04 VM).
+Deployed VM will have the content of this repository in /vpn-server-service-config/ directory.
+
+The following commands may be used to launch the docker container in the controlled environment using vagrant:
+
+vagrant up
+vagrant ssh
+cd /vpn-server-service-config/
+sudo su
+./install_docker.sh
+docker build -t vpn-server .
+docker run -t --net=host  --privileged -v /dev/net/:/dev/net/ vpn-server
+
+Once you are finished:
+^C
+exit
+exit
+vagrant destroy
