@@ -12,7 +12,6 @@ COPY ./dh2048.pem /etc/openvpn
 COPY ./tun_manager.sh /etc/openvpn
 
 WORKDIR /etc/openvpn
-CMD sh tun_manager.sh
 
 EXPOSE 1194/udp
 CMD openvpn server.conf

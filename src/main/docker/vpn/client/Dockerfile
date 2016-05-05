@@ -11,6 +11,5 @@ COPY ./client.key /etc/openvpn
 COPY ./tun_manager.sh /etc/openvpn
 
 WORKDIR /etc/openvpn
-CMD sh tun_manager.sh
 
 CMD openvpn client.conf
