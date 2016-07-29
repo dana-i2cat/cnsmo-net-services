@@ -4,9 +4,12 @@ FROM centos:centos6
 ENV HOME 						/root
 ENV TERM 						xterm
 
-RUN yum -y update; yum -y install epel-release; yum -y clean all
+RUN yum -y update
+RUN yum -y install epel-release
+RUN yum -y clean all
 
-RUN yum -y install easy-rsa; yum -y clean all
+RUN yum -y install easy-rsa
+RUN yum -y clean all
 
 RUN ln -s /usr/share/easy-rsa/2.0 /er
 COPY ./build-ca /er
