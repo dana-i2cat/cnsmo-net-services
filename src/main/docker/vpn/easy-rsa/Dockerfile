@@ -19,9 +19,9 @@ RUN apk update  \
 
 # Override used easy-rsa scripts for non-interactive ones
 RUN ln -s /usr/share/easy-rsa /er
-COPY ./build-ca /er/
-COPY ./build-key /er/
-COPY ./build-key-server /er/
+#COPY ./build-ca /er/
+#COPY ./build-key /er/
+#COPY ./build-key-server /er/
 
 ENV EASY_RSA					/usr/share/easy-rsa
 ENV KEY_CONFIG					$EASY_RSA/openssl-1.0.0.cnf
