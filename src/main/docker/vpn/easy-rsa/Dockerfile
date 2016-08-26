@@ -17,11 +17,8 @@ RUN apk update  \
  && mv /tmp/EasyRSA-2.2.2/* /usr/share/easy-rsa  \
  && rm -rf /tmp/*
 
-# Override used easy-rsa scripts for non-interactive ones
+# Create a shortcut to easy-rsa directory
 RUN ln -s /usr/share/easy-rsa /er
-#COPY ./build-ca /er/
-#COPY ./build-key /er/
-#COPY ./build-key-server /er/
 
 ENV EASY_RSA					/usr/share/easy-rsa
 ENV KEY_CONFIG					$EASY_RSA/openssl-1.0.0.cnf
