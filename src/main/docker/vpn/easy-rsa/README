@@ -1,0 +1,15 @@
+OpenVPN easy-rsa 2.2.2 docker wrapper.
+
+# Build instructions #
+Build the docker with the following command:
+docker build -t new-easy-rsa .
+
+# Run instructions #
+Run *.sh scripts to perform desired operations:
+- gen_ca.sh generates a CA key-pair and certificate, and computes a new DH file.
+- gen_client.sh generates a client key-pair and certificate, signed by CA.
+- gen_server.sh generates a server key-pair and certificate, signed by CA.
+
+# Custom configuration #
+Use vars file to customize easy-rsa. See easy-rsa documentation here
+https://github.com/OpenVPN/easy-rsa/blob/release/2.x/easy-rsa/2.0/vars
