@@ -6,7 +6,7 @@ docker build -t new-easy-rsa .
 
 # Run instructions #
 Run *.sh scripts to perform desired operations:
-- gen_ca.sh generates computes a new DH and generates a CA key-pair and certificate.
+- gen_ca.sh generates a CA key-pair and certificate, and computes a new DH file.
 - gen_client.sh generates a client key-pair and certificate, signed by CA.
 - gen_server.sh generates a server key-pair and certificate, signed by CA.
 
