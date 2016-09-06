@@ -4,6 +4,7 @@ import subprocess
 import sys
 import os
 
+
 def usage():
     print "Usage:"
     print "You can use the following keywords:"
@@ -30,11 +31,23 @@ def add_rule():
 
 
 def config_denyall_input():
+
+    get_interfaces = """ls /sys/class/net | sed -e s/^\(.*\)$/\1/ | paste -sd ','"""
+    interfaces = subprocess.check_output(get_interfaces, shell=True).rstrip('\n').split(',')
+    allow_all_vpn = None
+    if "tap0" in interfaces:
+        allow_all_vpn = "iptables -A INPUT -i tap0 -s 10.10.10.0/24 -j ACCEPT"
+
     allow_lo = "iptables -A INPUT -i lo -j ACCEPT"
     allow_related = "iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT"
+    allow_icmp_request = "iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT"
+    allow_icmp_reply = "iptables -A INPUT -p icmp --icmp-type echo-reply -j ACCEPT"
     input_policy_drop = "iptables -P INPUT DROP"
 
-    rules = (allow_lo, allow_related, input_policy_drop)
+    rules = [allow_lo, allow_related, input_policy_drop, allow_icmp_request, allow_icmp_reply]
+    if allow_all_vpn:
+        rules.append(allow_all_vpn)
+
     for rule in rules:
         print rule
         subprocess.call(rule, shell=True)
