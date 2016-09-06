@@ -32,8 +32,9 @@ def add_rule():
 
 def config_denyall_input():
 
-    get_interfaces = """ls /sys/class/net | sed -e s/^\(.*\)$/\1/ | paste -sd ','"""
-    interfaces = subprocess.check_output(get_interfaces, shell=True).rstrip('\n').split(',')
+    get_interfaces = "ls /sys/class/net"
+    interfaces = subprocess.check_output(get_interfaces, shell=True).rstrip('\n')
+
     allow_all_vpn = None
     if "tap0" in interfaces:
         allow_all_vpn = "iptables -A INPUT -i tap0 -s 10.10.10.0/24 -j ACCEPT"
