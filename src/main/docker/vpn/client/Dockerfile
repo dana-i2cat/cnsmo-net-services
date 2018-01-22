@@ -9,7 +9,6 @@ COPY ./client.crt /etc/openvpn/
 COPY ./ca.crt /etc/openvpn/
 COPY ./client.key /etc/openvpn/
 COPY ./tun_manager.sh /etc/openvpn/
-COPY ./update-resolv-conf.sh /etc/openvpn/
 
 WORKDIR /etc/openvpn
 
